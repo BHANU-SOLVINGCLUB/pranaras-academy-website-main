@@ -14,17 +14,20 @@ import {
   MessageCircle,
   Brain,
   Heart,
+  Sparkles,
+  Cpu,
+  Crown,
 } from "lucide-react"
 
 export default function ServicesPage() {
   const studentServices = [
     {
-      icon: Lightbulb,
+      icon: MessageCircle,
       name: "Soft Skills Development & Personality Enhancement",
       description: "Comprehensive training to enhance communication, confidence, attitude, and workplace readiness through practical, activity-based learning",
     },
     { icon: Heart, name: "Life Coaching", description: "Personal growth and self-discovery sessions" },
-    { icon: Target, name: "Motivational Sessions", description: "Inspiring talks to boost motivation and drive" },
+    { icon: Sparkles, name: "Motivational Sessions", description: "Inspiring talks to boost motivation and drive" },
     { icon: Brain, name: "Manifestation & Mindset", description: "Transform your mindset for success" },
     { icon: MessageCircle, name: "Counseling Sessions", description: "One-on-one guidance and support" },
     { icon: Award, name: "Leadership Training", description: "Develop leadership qualities early" },
@@ -32,17 +35,17 @@ export default function ServicesPage() {
 
   const professionalServices = [
     { icon: MessageCircle, name: "Communication Skills", description: "Enhance verbal and non-verbal communication, presentation skills, and professional interaction" },
-    { icon: TrendingUp, name: "Managerial Skills", description: "Essential management and leadership abilities" },
-    { icon: Award, name: "Technical Training", description: "Industry-specific technical expertise" },
-    { icon: Target, name: "Career Growth Coaching", description: "Strategic career development planning" },
+    { icon: Users, name: "Managerial Skills", description: "Essential management and leadership abilities" },
+    { icon: Cpu, name: "Technical Training", description: "Industry-specific technical expertise" },
+    { icon: TrendingUp, name: "Career Growth Coaching", description: "Strategic career development planning" },
   ]
 
   const corporateServices = [
     { icon: Lightbulb, name: "Soft Skills Training (SS)", description: "Professional soft skills development focusing on communication, emotional intelligence, leadership, and workplace excellence" },
-    { icon: Award, name: "Technical Training (TT)", description: "Upskilling your workforce" },
-    { icon: Users, name: "Leadership & Executive Coaching", description: "Develop strong organizational leaders" },
-    { icon: Target, name: "Team Building Sessions", description: "Strengthen team dynamics and motivation" },
-    { icon: Briefcase, name: "Hire & Deploy Programs", description: "End-to-end talent solutions" },
+    { icon: Cpu, name: "Technical Training (TT)", description: "Upskilling your workforce" },
+    { icon: Crown, name: "Leadership & Executive Coaching", description: "Develop strong organizational leaders" },
+    { icon: Users, name: "Team Building Sessions", description: "Strengthen team dynamics and motivation" },
+    { icon: Briefcase, name: "Hire, Train & Deploy Programs", description: "End-to-end talent solutions" },
   ]
 
   const sectionImages = {
@@ -59,10 +62,10 @@ export default function ServicesPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="py-20 sm:py-24 lg:py-28">
+        <section className="py-16 sm:py-20 lg:py-24 min-h-[70vh] flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
-              <div className="space-y-10">
+              <div className="space-y-8">
                 <h1 className="text-4xl sm:text-5xl font-bold text-primary text-balance">Our Services</h1>
                 <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
                   Professional soft skills training designed to enhance communication, confidence, attitude, and workplace readiness. Our holistic personality development programs help learners succeed in academics, career, and personal life through practical, activity-based, and learner-centered training.
@@ -74,11 +77,11 @@ export default function ServicesPage() {
                   <div>✔ Coaching support</div>
                 </div>
               </div>
-              <div className="relative overflow-hidden rounded-3xl border bg-background shadow-2xl">
+              <div className="relative overflow-hidden rounded-3xl border bg-background shadow-2xl h-full min-h-[320px]">
                 <img
                   src={sectionImages.hero}
                   alt="Indian professional training workshop"
-                  className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
@@ -87,7 +90,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Students Section */}
-        <section id="students" className="py-20 sm:py-24 lg:py-28">
+        <section id="students" className="py-16 sm:py-20 lg:py-24 min-h-[70vh] flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
               <div className="lg:col-span-2">
@@ -131,7 +134,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Professionals Section */}
-        <section id="professionals" className="py-20 sm:py-24 lg:py-28 bg-muted/30">
+        <section id="professionals" className="py-16 sm:py-20 lg:py-24 min-h-[70vh] flex items-center bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
               <div className="lg:col-span-2 order-2 lg:order-1">
@@ -175,7 +178,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Corporates Section */}
-        <section id="corporates" className="py-20 sm:py-24 lg:py-28">
+        <section id="corporates" className="py-16 sm:py-20 lg:py-24 min-h-[70vh] flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
               <div className="lg:col-span-2">
@@ -218,12 +221,12 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 sm:py-24 lg:py-28">
+        {/* CTA – Ready to Get Started? */}
+        <section className="py-16 sm:py-20 lg:py-24 min-h-[70vh] flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Card className="overflow-hidden border-2">
               <div className="grid lg:grid-cols-2">
-                <div className="p-12 sm:p-16 lg:p-20 flex flex-col justify-center space-y-6">
+                <div className="p-12 sm:p-16 lg:p-16 flex flex-col justify-center space-y-6">
                   <h2 className="text-3xl sm:text-4xl font-bold text-balance">Ready to Get Started?</h2>
                   <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
                     Tell us your goals and audience size — we’ll recommend the right program and timeline.
@@ -236,7 +239,7 @@ export default function ServicesPage() {
                   <img
                     src={sectionImages.cta}
                     alt="Team collaboration and training"
-                    className="w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] object-cover"
+                    className="w-full h-auto max-h-[360px] sm:max-h-[420px] lg:max-h-[480px] object-cover"
                     loading="lazy"
                   />
                 </div>

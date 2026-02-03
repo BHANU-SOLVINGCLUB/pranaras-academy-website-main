@@ -5,17 +5,19 @@ import { Mail, Phone, MapPin } from "lucide-react"
 export function Footer() {
   return (
     <footer className="bg-foreground text-primary-foreground">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
+          <div className="space-y-2 -mt-16">
             <Image
               src="/Pranaras Logo.png"
               alt="Pranaras Academy"
-              width={400}
-              height={110}
-              className="h-28 w-auto bg-transparent"
+              width={580}
+              height={140}
+              className="h-60 sm:h-64 w-auto bg-transparent"
             />
-            <p className="text-base font-semibold text-primary-foreground tracking-wide leading-relaxed">Build Skills. Shape Futures.</p>
+            <p className="text-base font-semibold text-primary-foreground tracking-wide leading-relaxed pl-4 sm:pl-8 -mt-4">
+              Build Skills. Shape Futures.
+            </p>
           </div>
 
           <div>

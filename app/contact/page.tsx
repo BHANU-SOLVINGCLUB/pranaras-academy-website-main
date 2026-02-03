@@ -21,12 +21,53 @@ export default function ContactPage() {
     service: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{ type: "success" | "error" | null; message: string }>({
+    type: null,
+    message: "",
+  })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("[v0] Form submitted:", formData)
-    alert("Thank you for your interest! We will get back to you soon.")
-    setFormData({ name: "", email: "", phone: "", organization: "", service: "", message: "" })
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: "" })
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "Thank you for your interest! We will get back to you soon.",
+        })
+        setFormData({ name: "", email: "", phone: "", organization: "", service: "", message: "" })
+      } else {
+        let errorMsg = data.error || "Something went wrong. Please try again later."
+        if (data.details && process.env.NODE_ENV === "development") {
+          errorMsg += ` (${data.details})`
+        }
+        setSubmitStatus({
+          type: "error",
+          message: errorMsg,
+        })
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      setSubmitStatus({
+        type: "error",
+        message: "Failed to send message. Please try again later.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -207,12 +248,25 @@ export default function ContactPage() {
                         />
                       </div>
 
+                      {submitStatus.type && (
+                        <div
+                          className={`p-4 rounded-lg ${
+                            submitStatus.type === "success"
+                              ? "bg-green-50 text-green-800 border border-green-200"
+                              : "bg-red-50 text-red-800 border border-red-200"
+                          }`}
+                        >
+                          <p className="text-sm font-medium">{submitStatus.message}</p>
+                        </div>
+                      )}
+
                       <Button
                         type="submit"
                         size="lg"
-                        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={isSubmitting}
                       >
-                        Submit Enquiry
+                        {isSubmitting ? "Sending..." : "Submit Enquiry"}
                       </Button>
                     </form>
                   </CardContent>

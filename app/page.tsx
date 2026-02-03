@@ -28,7 +28,7 @@ export default function HomePage() {
     {
       icon: Briefcase,
       title: "Corporates",
-      description: "Technical training, leadership development, team building, and hire & deploy programs.",
+      description: "Technical training, leadership development, team building, and Hire, train & deploy programs.",
       href: "/services#corporates",
       gradient: "from-primary to-accent",
       image: "/stock-images/homepage_who_we_serve_corporates.jpeg",
@@ -63,7 +63,7 @@ export default function HomePage() {
     },
     {
       icon: Sparkles,
-      title: "Hire & Deploy Programs",
+      title: "Hire, Train & Deploy Programs",
       description: "Corporate solutions for talent development and deployment",
     },
   ]
@@ -109,55 +109,53 @@ export default function HomePage() {
 
       <main>
         {/* Hero Section */}
-        <section className="py-16 sm:py-20 lg:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-7">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent">
+        <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24">
+          {/* Background hero video */}
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={images.hero}
+          >
+            <source src="/hero-video-1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Overlay to improve text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/50 to-background/2" />
+
+          <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl lg:max-w-4xl space-y-7">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent">
                 <Sparkles className="w-4 h-4" />
                 Professional Training & Coaching
-                </div>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-balance leading-tight">
-                <span className="text-foreground">Build Skills.</span>{" "}
-                <span className="text-primary">
-                  Shape Futures.
-                </span>
-                </h1>
-                <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl text-pretty leading-relaxed">
-                  Transform your potential into performance with professional soft skills training designed to enhance communication, confidence, attitude, and workplace readiness through practical, activity-based learning.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 items-start pt-2">
-                  <Button
-                    size="lg"
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 h-14 shadow-lg hover:shadow-xl transition-all"
-                    asChild
-                  >
-                    <Link href="/programs">
-                      Explore Programs <ArrowRight className="ml-2" size={20} />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" className="text-lg px-8 h-14 border-2 bg-transparent" asChild>
-                    <Link href="/contact">Schedule a Session</Link>
-                  </Button>
-                </div>
-                <div className="pt-4 text-sm text-muted-foreground">
-                  Trusted by learners and teams across India • Workshops • Long-term programs • Corporate partnerships
-                </div>
               </div>
-
-              <div className="relative">
-                <div className="relative overflow-hidden rounded-3xl border bg-background shadow-2xl">
-                  <img
-                    src={images.hero}
-                    alt="Indian corporate training session"
-                    className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="hidden sm:block absolute -bottom-6 -left-6 w-48 rounded-2xl border bg-background shadow-xl p-4">
-                  <div className="text-2xl font-bold text-primary">500+</div>
-                  <div className="text-xs text-muted-foreground">Students Trained</div>
-                </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-balance leading-tight">
+                <span className="text-foreground">Build Skills.</span>{" "}
+                <span className="text-primary">Shape Futures.</span>
+              </h1>
+              <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl text-pretty leading-relaxed">
+                Transform your potential into performance with professional soft skills training designed to enhance
+                communication, confidence, attitude, and workplace readiness through practical, activity-based learning.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 items-start pt-2">
+                <Button
+                  size="lg"
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 h-14 shadow-lg hover:shadow-xl transition-all"
+                  asChild
+                >
+                  <Link href="/programs">
+                    Explore Programs <ArrowRight className="ml-2" size={20} />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="text-lg px-8 h-14 border-2 bg-transparent" asChild>
+                  <Link href="/contact">Schedule a Session</Link>
+                </Button>
+              </div>
+              <div className="pt-4 text-sm text-muted-foreground">
+                Trusted by learners and teams across India • Workshops • Long-term programs • Corporate partnerships
               </div>
             </div>
           </div>

@@ -32,14 +32,14 @@ export function Header() {
       className={`sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 transition-shadow duration-300 ${isScrolled ? "shadow-lg" : ""}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-24 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 group">
+        <div className="flex h-12 sm:h-20 md:h-24 items-center justify-between">
+          <Link href="/" className="flex h-full items-center group">
             <Image
-              src="/Pranaras Logo.png"
+              src="/logo-light.png"
               alt="Pranaras Academy"
-              width={400}
-              height={110}
-              className="h-24 w-auto transition-transform group-hover:scale-105 bg-transparent"
+              width={360}
+              height={100}
+              className="h-full w-auto max-h-24 transition-transform group-hover:scale-105 bg-transparent"
             />
           </Link>
 
