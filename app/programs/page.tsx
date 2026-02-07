@@ -12,7 +12,8 @@ export default function ProgramsPage() {
       category: "Soft Skills Development & Personality Enhancement",
       title: "Comprehensive Soft Skills Training Program",
       duration: "1-2 Weeks (Short Term) • 1-3 Months (Certificate) • Custom Programs Available",
-      description: "A holistic program designed to enhance communication, confidence, attitude, and workplace readiness. This practical, activity-based, and learner-centered training equips participants with essential soft skills for personal growth and professional success through real-life examples and interactive learning methods.",
+      description:
+        "A holistic program designed to enhance communication, confidence, attitude, and workplace readiness. This practical, activity-based, and learner-centered training equips participants with essential soft skills for personal growth and professional success through real-life examples and interactive learning methods.",
       image: "/stock-images/trainingprograms_comprehensive_soft.jpeg",
       topics: [
         "Communication Skills (Verbal & Non-Verbal)",
@@ -104,20 +105,20 @@ export default function ProgramsPage() {
       <Header />
 
       <main>
-        {/* Hero Section */}
-        <section className="py-16 sm:py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div className="space-y-6">
-                <h1 className="text-4xl sm:text-5xl font-bold text-primary text-balance">Training Programs</h1>
-                <p className="text-lg text-muted-foreground text-pretty">
+        {/* Hero Section - fits within viewport */}
+        <section className="h-[100dvh] min-h-0 flex flex-col justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+          <div className="container mx-auto max-w-6xl mx-auto w-full">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+              <div className="space-y-3 sm:space-y-4">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary text-balance">Training Programs</h1>
+                <p className="text-sm sm:text-base text-muted-foreground text-pretty">
                   Comprehensive learning pathways designed to accelerate your professional growth.
                 </p>
-                <div className="flex gap-3">
-                  <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
                     <Link href="/contact">Talk to Us</Link>
                   </Button>
-                  <Button variant="outline" asChild>
+                  <Button size="sm" variant="outline" asChild>
                     <Link href="/services">View Services</Link>
                   </Button>
                 </div>
@@ -126,57 +127,58 @@ export default function ProgramsPage() {
                 <img
                   src={sectionImages.hero}
                   alt="Professional training program session"
-                  className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover"
-                  loading="lazy"
+                  className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover"
+                  loading="eager"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Programs Grid */}
-        <section className="py-16 sm:py-20 bg-muted/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-8">
+        {/* Programs Grid - viewport height minimum */}
+        <section className="min-h-[100dvh] flex flex-col justify-center bg-muted/30 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="container mx-auto w-full">
+            <div className="space-y-4 sm:space-y-6">
               {programs.map((program, index) => (
-                <Card key={program.title} className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                  <div className="grid md:grid-cols-3 gap-8">
+                <Card key={program.title} className="overflow-visible hover:shadow-xl transition-all duration-300">
+                  <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
                     <div
-                      className={`p-6 ${index % 2 === 0 ? "bg-primary/5" : "bg-accent/5"} flex flex-col justify-center`}
+                      className={`p-4 sm:p-6 ${index % 2 === 0 ? "bg-primary/5" : "bg-accent/5"} flex flex-col justify-center`}
                     >
-                      <div className="relative overflow-hidden rounded-xl border bg-background shadow-sm mb-5">
+                      <div className="relative overflow-hidden rounded-xl border bg-background shadow-sm mb-3 sm:mb-4">
                         <img
                           src={program.image}
                           alt={`${program.category} program`}
-                          className="h-52 sm:h-60 lg:h-72 w-full object-cover"
+                          className="h-36 sm:h-40 lg:h-48 w-full object-cover"
                           loading="lazy"
                         />
                       </div>
-                      <div className="w-14 h-14 rounded-xl bg-background shadow-md flex items-center justify-center mb-4">
-                        <program.icon className={`w-7 h-7 ${index % 2 === 0 ? "text-primary" : "text-accent"}`} />
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-background shadow-md flex items-center justify-center mb-3 sm:mb-4">
+                        <program.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${index % 2 === 0 ? "text-primary" : "text-accent"}`} />
                       </div>
-                      <div className="text-sm font-semibold text-muted-foreground mb-2">{program.category}</div>
-                      <h3 className="text-2xl font-bold mb-3">{program.title}</h3>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1 sm:mb-2">{program.category}</div>
+                      <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{program.title}</h3>
+                      <div className="text-xs sm:text-sm text-muted-foreground">
                         <span className="font-semibold">Duration:</span> {program.duration}
                       </div>
                     </div>
-                    <div className="md:col-span-2 p-8 flex flex-col justify-between">
-                      <div>
-                        <CardDescription className="text-base mb-4">{program.description}</CardDescription>
-                        <div className="mb-6">
-                          <h4 className="text-sm font-semibold mb-3 text-foreground">Key Topics Covered:</h4>
-                          <div className="flex flex-wrap gap-2">
+                    <div className="md:col-span-2 p-4 sm:p-6 flex flex-col justify-between min-h-0 overflow-visible">
+                      <div className="min-h-0 overflow-visible">
+                        <CardDescription className="text-sm sm:text-base mb-2 sm:mb-3">{program.description}</CardDescription>
+                        <div className="mb-3 sm:mb-4">
+                          <h4 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2 text-foreground">Key Topics Covered:</h4>
+                          <div className="flex flex-wrap gap-1 sm:gap-1.5">
                             {program.topics.map((topic) => (
-                              <span key={topic} className="px-3 py-1 bg-muted text-xs font-medium rounded-full">
+                              <span key={topic} className="px-2 py-0.5 bg-muted text-[10px] sm:text-xs font-medium rounded-full">
                                 {topic}
                               </span>
                             ))}
                           </div>
                         </div>
                       </div>
-                      <div>
+                      <div className="flex-shrink-0 pt-2">
                         <Button
+                          size="sm"
                           variant="default"
                           className="bg-accent hover:bg-accent/90 text-accent-foreground"
                           asChild
@@ -192,20 +194,20 @@ export default function ProgramsPage() {
           </div>
         </section>
 
-        {/* Custom Programs */}
-        <section className="py-16 sm:py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Custom Programs - viewport height */}
+        <section className="h-[100dvh] min-h-0 flex flex-col justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+          <div className="container mx-auto w-full">
             <Card className="overflow-hidden border-2">
               <div className="grid lg:grid-cols-2">
-                <div className="p-10 sm:p-12 flex flex-col justify-center">
-                  <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4 text-balance">
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-3 sm:mb-4 text-balance">
                     Custom Corporate Programs
                   </h2>
-                  <p className="text-lg text-muted-foreground mb-8 text-pretty">
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 text-pretty">
                     Bespoke training programs tailored to your organization&apos;s needs — from onboarding to leadership
                     development.
                   </p>
-                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                  <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
                     <Link href="/contact">Request Custom Program</Link>
                   </Button>
                 </div>
@@ -213,7 +215,7 @@ export default function ProgramsPage() {
                   <img
                     src={sectionImages.custom}
                     alt="Corporate training and collaboration"
-                    className="w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] object-cover"
+                    className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover"
                     loading="lazy"
                   />
                 </div>

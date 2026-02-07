@@ -325,14 +325,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 sm:py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="overflow-hidden border-2">
-              <div className="grid lg:grid-cols-2">
-                <div className="p-10 sm:p-12 flex flex-col justify-center">
-                  <h2 className="text-4xl sm:text-5xl font-bold mb-5 text-balance">Ready to Transform Your Skills?</h2>
-                  <p className="text-lg text-muted-foreground mb-8 text-pretty leading-relaxed">
+        {/* CTA Section - viewport height */}
+        <section className="h-[100dvh] min-h-0 flex flex-col justify-center overflow-hidden py-8 sm:py-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 min-h-0 flex flex-col justify-center">
+            <Card className="overflow-hidden border-2 min-h-0">
+              <div className="grid lg:grid-cols-2 min-h-0 h-full">
+                <div className="p-8 sm:p-10 lg:p-12 flex flex-col justify-center min-h-0">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 text-balance">Ready to Transform Your Skills?</h2>
+                  <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 text-pretty leading-relaxed">
                     Join students, professionals, and corporate teams who are building confidence, leadership, and
                     career-ready skills with Pranaras Academy.
                   </p>
@@ -351,11 +351,11 @@ export default function HomePage() {
                     </Button>
                   </div>
                 </div>
-                <div className="relative">
+                <div className="relative min-h-0 max-h-[45vh] lg:max-h-[55vh] flex items-center">
                   <img
                     src={images.cta}
                     alt="Professional coaching session in India"
-                    className="w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] object-cover"
+                    className="w-full h-full min-h-[200px] object-cover"
                     loading="lazy"
                   />
                 </div>

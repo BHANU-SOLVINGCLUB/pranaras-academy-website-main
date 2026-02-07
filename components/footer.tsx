@@ -73,7 +73,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-primary-foreground/80">
                 <Mail size={16} className="mt-0.5 flex-shrink-0" />
-                <span>info@pranarasacademy.com</span>
+                <span>sales@pranarasacademy.com</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-primary-foreground/80">
                 <Phone size={16} className="mt-0.5 flex-shrink-0" />

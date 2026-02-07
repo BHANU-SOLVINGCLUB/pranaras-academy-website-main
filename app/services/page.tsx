@@ -24,7 +24,8 @@ export default function ServicesPage() {
     {
       icon: MessageCircle,
       name: "Soft Skills Development & Personality Enhancement",
-      description: "Comprehensive training to enhance communication, confidence, attitude, and workplace readiness through practical, activity-based learning",
+      description: "Empowering individuals with confidence, communication, and character for lifelong success.",
+      href: "/programs/soft-skills-development",
     },
     { icon: Heart, name: "Life Coaching", description: "Personal growth and self-discovery sessions" },
     { icon: Sparkles, name: "Motivational Sessions", description: "Inspiring talks to boost motivation and drive" },
@@ -105,17 +106,33 @@ export default function ServicesPage() {
                 </div>
                 <div className="grid grid-cols-1 gap-8 lg:gap-10">
               {studentServices.map((service) => (
-                <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
-                  <CardHeader className="pb-6 pt-6 px-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0 pb-6 px-6">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                  </CardContent>
-                </Card>
+                service.href ? (
+                  <Link key={service.name} href={service.href} className="block">
+                    <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
+                      <CardHeader className="pb-6 pt-6 px-6">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
+                          <service.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-0 pb-6 px-6">
+                        <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ) : (
+                  <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300 h-full">
+                    <CardHeader className="pb-6 pt-6 px-6">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
+                        <service.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-0 pb-6 px-6">
+                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                )
               ))}
             </div>
               </div>

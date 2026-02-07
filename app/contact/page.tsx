@@ -74,8 +74,7 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const heroImage =
-    "https://images.pexels.com/photos/8867426/pexels-photo-8867426.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900"
+  const heroImage = "/stock-images/contact_getintouch.jpeg"
 
   return (
     <>
@@ -101,7 +100,7 @@ export default function ContactPage() {
               <div className="relative overflow-hidden rounded-3xl border bg-background shadow-2xl">
                 <img
                   src={heroImage}
-                  alt="Coaching and consultation session"
+                  alt="Indian woman professional leading consultation, get in touch"
                   className="w-full h-[320px] sm:h-[420px] object-cover"
                   loading="lazy"
                 />
@@ -126,7 +125,7 @@ export default function ContactPage() {
                       <Mail className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium">Email</p>
-                        <p className="text-sm text-muted-foreground">info@pranarasacademy.com</p>
+                        <p className="text-sm text-muted-foreground">sales@pranarasacademy.com</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
