@@ -156,14 +156,16 @@ export default function ProgramsPage() {
                       <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-background shadow-md flex items-center justify-center mb-3 sm:mb-4">
                         <program.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${index % 2 === 0 ? "text-primary" : "text-accent"}`} />
                       </div>
-                      <div className="text-xs sm:text-sm font-semibold text-muted-foreground mb-1 sm:mb-2">{program.category}</div>
-                      <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{program.title}</h3>
-                      <div className="text-xs sm:text-sm text-muted-foreground">
-                        <span className="font-semibold">Duration:</span> {program.duration}
-                      </div>
+                      <div className="text-xs sm:text-sm font-semibold text-muted-foreground">{program.category}</div>
                     </div>
                     <div className="md:col-span-2 p-4 sm:p-6 flex flex-col justify-between min-h-0 overflow-visible">
                       <div className="min-h-0 overflow-visible">
+                        <header className="mb-4 sm:mb-5">
+                          <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{program.title}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            <span className="font-semibold">Duration:</span> {program.duration}
+                          </p>
+                        </header>
                         <CardDescription className="text-sm sm:text-base mb-2 sm:mb-3">{program.description}</CardDescription>
                         <div className="mb-3 sm:mb-4">
                           <h4 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2 text-foreground">Key Topics Covered:</h4>
