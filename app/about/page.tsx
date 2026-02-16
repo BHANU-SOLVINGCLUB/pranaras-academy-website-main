@@ -76,16 +76,15 @@ export default function AboutPage() {
                 <div>
                   <h2 className="text-3xl font-bold text-primary mb-4">Our Mission</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    To provide transformative learning experiences that empower individuals and organizations to reach
-                    their highest potential through expert-led training in soft skills, leadership, and personal
-                    development.
+                    To nurture confident, ethical, and responsible leaders who can create positive change in society
+                    and inspire others through their actions. We provide high-quality training that transforms individuals into effective communicators, inspiring leaders, and skilled professionals who contribute positively to organizations and society.
                   </p>
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold text-primary mb-4">Our Vision</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    To be the leading training academy that shapes futures by building essential skills, fostering
-                    leadership, and creating lasting positive impact across all sectors of society.
+                    To become a trusted center for leadership excellence, empowering individuals with the skills and
+                    mindset needed to lead successfully in every area of life. We aim to create confident, competent, and communication-ready professionals who succeed in every workplace, building strong, ethical, and impactful leaders who drive innovation and organizational success.
                   </p>
                 </div>
               </div>

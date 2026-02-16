@@ -31,22 +31,22 @@ export default function ServicesPage() {
     { icon: Sparkles, name: "Motivational Sessions", description: "Inspiring talks to boost motivation and drive" },
     { icon: Brain, name: "Manifestation & Mindset", description: "Transform your mindset for success" },
     { icon: MessageCircle, name: "Counseling Sessions", description: "One-on-one guidance and support" },
-    { icon: Award, name: "Leadership Training", description: "Develop leadership qualities early" },
+    { icon: Award, name: "Leadership Training Sessions", description: "Develop leadership qualities early", href: "/services/leadership-training" },
   ]
 
   const professionalServices = [
-    { icon: MessageCircle, name: "Communication Skills", description: "Enhance verbal and non-verbal communication, presentation skills, and professional interaction" },
-    { icon: Users, name: "Managerial Skills", description: "Essential management and leadership abilities" },
-    { icon: Cpu, name: "Technical Training", description: "Industry-specific technical expertise" },
-    { icon: TrendingUp, name: "Career Growth Coaching", description: "Strategic career development planning" },
+    { icon: MessageCircle, name: "Communication Skills Training for Working Professionals", description: "Enhance verbal and non-verbal communication, presentation skills, and professional interaction", href: "/services/communication-skills" },
+    { icon: Users, name: "Managerial Skills Training for Working Professionals", description: "Essential management and leadership abilities", href: "/services/managerial-skills" },
+    { icon: Cpu, name: "Technical Skills Training for Working Professionals", description: "Industry-specific technical expertise", href: "/services/technical-skills" },
+    { icon: TrendingUp, name: "Career Growth Coaching for Working Professionals", description: "Strategic career development planning", href: "/services/career-growth-coaching" },
   ]
 
   const corporateServices = [
-    { icon: Lightbulb, name: "Soft Skills Training (SS)", description: "Professional soft skills development focusing on communication, emotional intelligence, leadership, and workplace excellence" },
-    { icon: Cpu, name: "Technical Training (TT)", description: "Upskilling your workforce" },
-    { icon: Crown, name: "Leadership & Executive Coaching", description: "Develop strong organizational leaders" },
-    { icon: Users, name: "Team Building Sessions", description: "Strengthen team dynamics and motivation" },
-    { icon: Briefcase, name: "Hire, Train & Deploy Programs", description: "End-to-end talent solutions" },
+    { icon: Lightbulb, name: "Corporate Soft Skills Training Programs", description: "Professional soft skills development focusing on communication, emotional intelligence, leadership, and workplace excellence", href: "/services/corporate-soft-skills" },
+    { icon: Cpu, name: "Corporate Technical Training Skills Program", description: "Upskilling your workforce", href: "/services/corporate-technical-training" },
+    { icon: Crown, name: "Corporate Leadership & Executive Coaching", description: "Develop strong organizational leaders", href: "/services/corporate-leadership-coaching" },
+    { icon: Users, name: "Team Building Sessions", description: "Strengthen team dynamics and motivation", href: "/services/team-building" },
+    { icon: Briefcase, name: "Hire & Deploy Programs", description: "End-to-end talent solutions", href: "/services/hire-deploy" },
   ]
 
   const sectionImages = {
@@ -166,17 +166,33 @@ export default function ServicesPage() {
                 </div>
                 <div className="grid grid-cols-1 gap-8 lg:gap-10">
               {professionalServices.map((service) => (
-                <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
-                  <CardHeader className="pb-6 pt-6 px-6">
-                    <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-5">
-                      <service.icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0 pb-6 px-6">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                  </CardContent>
-                </Card>
+                service.href ? (
+                  <Link key={service.name} href={service.href} className="block">
+                    <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <CardHeader className="pb-6 pt-6 px-6">
+                        <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-5">
+                          <service.icon className="w-6 h-6 text-accent" />
+                        </div>
+                        <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-0 pb-6 px-6">
+                        <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ) : (
+                  <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
+                    <CardHeader className="pb-6 pt-6 px-6">
+                      <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-5">
+                        <service.icon className="w-6 h-6 text-accent" />
+                      </div>
+                      <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-0 pb-6 px-6">
+                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                )
               ))}
             </div>
               </div>
@@ -210,17 +226,33 @@ export default function ServicesPage() {
                 </div>
                 <div className="grid grid-cols-1 gap-8 lg:gap-10">
               {corporateServices.map((service) => (
-                <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
-                  <CardHeader className="pb-6 pt-6 px-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0 pb-6 px-6">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                  </CardContent>
-                </Card>
+                service.href ? (
+                  <Link key={service.name} href={service.href} className="block">
+                    <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                      <CardHeader className="pb-6 pt-6 px-6">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
+                          <service.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-0 pb-6 px-6">
+                        <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ) : (
+                  <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
+                    <CardHeader className="pb-6 pt-6 px-6">
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
+                        <service.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-0 pb-6 px-6">
+                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                )
               ))}
             </div>
               </div>
