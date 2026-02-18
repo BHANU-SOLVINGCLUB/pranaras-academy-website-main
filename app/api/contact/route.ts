@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const { name, email, phone, organization, service, message } = await request.json();
@@ -23,6 +21,8 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Build email content with all fields
     const emailText = `
