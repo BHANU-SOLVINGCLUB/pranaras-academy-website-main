@@ -132,14 +132,16 @@ export default function ContactPage() {
                       <Phone className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium">Phone</p>
-                        <p className="text-sm text-muted-foreground">+91 XXX XXX XXXX</p>
+                        <a href="tel:+918886999022" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                          +91 88869 99022
+                        </a>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium">Location</p>
-                        <p className="text-sm text-muted-foreground">India</p>
+                        <p className="text-sm text-muted-foreground">Madhapur, Hyderabad, Telangana</p>
                       </div>
                     </div>
                   </CardContent>

@@ -1,8 +1,11 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useState } from "react"
 import { Heart, School, Users, Sparkles, Target, TrendingUp } from "lucide-react"
 
 export default function SocialImpactPage() {
@@ -29,23 +32,45 @@ export default function SocialImpactPage() {
       icon: Sparkles,
       title: "Confidence Building",
       description: "Helping students discover their inner strength and build self-confidence",
+      details: [
+        "Interactive sessions focused on self-belief and positive self-image.",
+        "Activities that help students speak up, participate, and lead confidently.",
+        "Practical techniques to handle fear, hesitation, and peer pressure.",
+      ],
     },
     {
       icon: Target,
       title: "Goal Setting",
       description: "Teaching the power of setting and achieving meaningful goals",
+      details: [
+        "Simple frameworks for short-term and long-term goal planning.",
+        "Methods to break large goals into weekly actionable steps.",
+        "Progress-tracking practices to improve consistency and accountability.",
+      ],
     },
     {
       icon: TrendingUp,
       title: "Career Guidance",
       description: "Providing insights into career paths and opportunities",
+      details: [
+        "Awareness of career pathways based on strengths and interests.",
+        "Guidance on skill building, internships, and next-step planning.",
+        "Support for making informed decisions about higher studies and jobs.",
+      ],
     },
     {
       icon: Users,
       title: "Communication Skills",
       description: "Developing essential communication and interpersonal abilities",
+      details: [
+        "Training on speaking clearly, listening actively, and expressing ideas.",
+        "Confidence-building for presentations, interviews, and group discussions.",
+        "Interpersonal communication for teamwork, respect, and collaboration.",
+      ],
     },
   ]
+
+  const [selectedFocus, setSelectedFocus] = useState<(typeof focuses)[number] | null>(null)
 
   const sectionImages = {
     hero: "/stock-images/socialimpact_hero_section.jpeg",
@@ -132,10 +157,12 @@ export default function SocialImpactPage() {
                     />
                   </div>
                   <CardContent className="p-8">
-                    <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
-                      <initiative.icon className="w-7 h-7 text-accent" />
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center">
+                        <initiative.icon className="w-7 h-7 text-accent" />
+                      </div>
+                      <h3 className="text-2xl font-bold">{initiative.title}</h3>
                     </div>
-                    <h3 className="text-2xl font-bold mb-3">{initiative.title}</h3>
                     <p className="text-muted-foreground mb-4 leading-relaxed">{initiative.description}</p>
                     <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full">
                       {initiative.impact}
@@ -166,7 +193,19 @@ export default function SocialImpactPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {focuses.map((focus) => (
-                <Card key={focus.title} className="border-2 hover:border-accent/50 transition-colors">
+                <Card
+                  key={focus.title}
+                  className="border-2 hover:border-accent/50 transition-colors cursor-pointer"
+                  onClick={() => setSelectedFocus(focus)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setSelectedFocus(focus)
+                    }
+                  }}
+                >
                   <CardContent className="p-6 text-center space-y-3">
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto">
                       <focus.icon className="w-6 h-6 text-primary" />
@@ -179,6 +218,48 @@ export default function SocialImpactPage() {
             </div>
           </div>
         </section>
+
+        {selectedFocus && (
+          <div
+            className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setSelectedFocus(null)}
+          >
+            <Card className="w-full max-w-2xl border-2 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+              <CardContent className="p-6 sm:p-8 space-y-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <selectedFocus.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold">{selectedFocus.title}</h3>
+                  </div>
+                  <button
+                    type="button"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setSelectedFocus(null)}
+                    aria-label="Close focus area popup"
+                  >
+                    Close
+                  </button>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">{selectedFocus.description}</p>
+                <ul className="space-y-2">
+                  {selectedFocus.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2">
+                  <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+                    <Link href="/contact">Partner With Us</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         {/* CTA */}
         <section className="py-16 sm:py-20">

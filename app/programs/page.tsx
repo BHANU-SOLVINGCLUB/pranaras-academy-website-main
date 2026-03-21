@@ -3,10 +3,10 @@ import { Footer } from "@/components/footer"
 import { Card, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { MessageCircle, Users, Code, Award, Brain } from "lucide-react"
+import { MessageCircle, Users, Code, Award, Brain, Briefcase } from "lucide-react"
 
 export default function ProgramsPage() {
-  const programs = [
+  const individualPrograms = [
     {
       icon: MessageCircle,
       category: "Soft Skills Development & Personality Enhancement",
@@ -30,6 +30,41 @@ export default function ProgramsPage() {
         "Interview & Presentation Skills",
       ],
     },
+    {
+      icon: Brain,
+      category: "Life Coaching",
+      title: "Personal Transformation Programs",
+      duration: "3-6 months",
+      description:
+        "Unlock your full potential through mindset coaching, goal setting, and personal development strategies.",
+      image: "/stock-images/trainingprogram_personal_transformation.jpeg",
+      topics: [
+        "Goal Setting & Achievement",
+        "Mindset Transformation",
+        "Work-Life Balance",
+        "Manifestation Techniques",
+        "Personal Branding",
+      ],
+    },
+    {
+      icon: Award,
+      category: "Leadership Development",
+      title: "Leadership Development for Individuals",
+      duration: "6-12 months",
+      description:
+        "Transform into an inspiring leader with advanced leadership principles, confidence-building practices, and executive presence for personal and career growth.",
+      image: "/stock-images/trainingprograms_executive_leadership.jpeg",
+      topics: [
+        "Visionary Leadership",
+        "Executive Presence",
+        "Strategic Communication",
+        "Organizational Impact",
+        "Coaching & Mentoring",
+      ],
+    },
+  ]
+
+  const corporatePrograms = [
     {
       icon: Users,
       category: "Managerial Skills (MS)",
@@ -63,7 +98,7 @@ export default function ProgramsPage() {
     },
     {
       icon: Award,
-      category: "Leadership Development",
+      category: "Executive Leadership Coaching",
       title: "Executive & Leadership Coaching",
       duration: "6-12 months",
       description: "Transform into an inspiring leader with advanced leadership principles and executive presence.",
@@ -77,19 +112,35 @@ export default function ProgramsPage() {
       ],
     },
     {
-      icon: Brain,
-      category: "Life Coaching",
-      title: "Personal Transformation Programs",
-      duration: "3-6 months",
+      icon: Users,
+      category: "Custom Corporate Programs",
+      title: "Custom Corporate Training Programs",
+      duration: "Custom duration based on organization needs",
       description:
-        "Unlock your full potential through mindset coaching, goal setting, and personal development strategies.",
-      image: "/stock-images/trainingprogram_personal_transformation.jpeg",
+        "Bespoke training programs tailored to your organization&apos;s needs — from onboarding to leadership development.",
+      image: "/stock-images/trainingprogram_custom_corporate.jpeg",
       topics: [
-        "Goal Setting & Achievement",
-        "Mindset Transformation",
-        "Work-Life Balance",
-        "Manifestation Techniques",
-        "Personal Branding",
+        "Need analysis and training design",
+        "Custom curriculum aligned to business outcomes",
+        "Delivery for teams across levels",
+        "Assessment and outcome tracking",
+        "Post-training reinforcement",
+      ],
+    },
+    {
+      icon: Briefcase,
+      category: "Hire, Train & Deploy",
+      title: "Hire, Train & Deploy Programs",
+      duration: "Flexible cohort-based model",
+      description:
+        "End-to-end talent development solution to hire candidates, train them on role-specific skills, and deploy job-ready talent aligned with company requirements.",
+      image: "/stock-images/trainingprogram_custom_corporate.jpeg",
+      topics: [
+        "Talent sourcing and screening",
+        "Role-specific skill bootcamps",
+        "Workplace readiness and communication",
+        "Assessment-driven deployment",
+        "Employer feedback and continuous improvement",
       ],
     },
   ]
@@ -135,94 +186,144 @@ export default function ProgramsPage() {
           </div>
         </section>
 
-        {/* Programs Grid - viewport height minimum */}
+        {/* Programs Grid - separated tracks */}
         <section className="min-h-[100dvh] flex flex-col justify-center bg-muted/30 px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
           <div className="container mx-auto w-full">
-            <div className="space-y-4 sm:space-y-6">
-              {programs.map((program, index) => (
-                <Card key={program.title} className="overflow-visible hover:shadow-xl transition-all duration-300">
-                  <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-                    <div
-                      className={`p-4 sm:p-6 ${index % 2 === 0 ? "bg-primary/5" : "bg-accent/5"} flex flex-col justify-center`}
-                    >
-                      <div className="relative overflow-hidden rounded-xl border bg-background shadow-sm mb-3 sm:mb-4">
-                        <img
-                          src={program.image}
-                          alt={`${program.category} program`}
-                          className="h-36 sm:h-40 lg:h-48 w-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-background shadow-md flex items-center justify-center mb-3 sm:mb-4">
-                        <program.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${index % 2 === 0 ? "text-primary" : "text-accent"}`} />
-                      </div>
-                      <div className="text-xs sm:text-sm font-semibold text-muted-foreground">{program.category}</div>
-                    </div>
-                    <div className="md:col-span-2 p-4 sm:p-6 flex flex-col justify-between min-h-0 overflow-visible">
-                      <div className="min-h-0 overflow-visible">
-                        <header className="mb-4 sm:mb-5">
-                          <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{program.title}</h3>
-                          <p className="text-sm text-muted-foreground">
-                            <span className="font-semibold">Duration:</span> {program.duration}
-                          </p>
-                        </header>
-                        <CardDescription className="text-sm sm:text-base mb-2 sm:mb-3">{program.description}</CardDescription>
-                        <div className="mb-3 sm:mb-4">
-                          <h4 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2 text-foreground">Key Topics Covered:</h4>
-                          <div className="flex flex-wrap gap-1 sm:gap-1.5">
-                            {program.topics.map((topic) => (
-                              <span key={topic} className="px-2 py-0.5 bg-muted text-[10px] sm:text-xs font-medium rounded-full">
-                                {topic}
-                              </span>
-                            ))}
+            <div className="space-y-10 sm:space-y-12">
+              <div>
+                <div className="mb-5 sm:mb-6">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-primary">For Individuals</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mt-1">
+                    Programs for students and individual learners to build confidence, communication, and leadership.
+                  </p>
+                </div>
+                <div className="space-y-4 sm:space-y-6">
+                  {individualPrograms.map((program, index) => (
+                    <Card key={program.title} className="overflow-visible hover:shadow-xl transition-all duration-300">
+                      <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+                        <div
+                          className={`p-4 sm:p-6 ${index % 2 === 0 ? "bg-primary/5" : "bg-accent/5"} flex flex-col justify-center`}
+                        >
+                          <div className="relative overflow-hidden rounded-xl border bg-background shadow-sm mb-3 sm:mb-4">
+                            <img
+                              src={program.image}
+                              alt={`${program.category} program`}
+                              className="h-36 sm:h-40 lg:h-48 w-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="flex items-center gap-3 sm:gap-4">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-background shadow-md flex items-center justify-center">
+                              <program.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${index % 2 === 0 ? "text-primary" : "text-accent"}`} />
+                            </div>
+                            <div className="text-xs sm:text-sm font-semibold text-muted-foreground">{program.category}</div>
+                          </div>
+                        </div>
+                        <div className="md:col-span-2 p-4 sm:p-6 flex flex-col justify-between min-h-0 overflow-visible">
+                          <div className="min-h-0 overflow-visible">
+                            <header className="mb-4 sm:mb-5">
+                              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{program.title}</h3>
+                              <p className="text-sm text-muted-foreground">
+                                <span className="font-semibold">Duration:</span> {program.duration}
+                              </p>
+                            </header>
+                            <CardDescription className="text-sm sm:text-base mb-2 sm:mb-3">{program.description}</CardDescription>
+                            <div className="mb-3 sm:mb-4">
+                              <h4 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2 text-foreground">Key Topics Covered:</h4>
+                              <div className="flex flex-wrap gap-1 sm:gap-1.5">
+                                {program.topics.map((topic) => (
+                                  <span key={topic} className="px-2 py-0.5 bg-muted text-[10px] sm:text-xs font-medium rounded-full">
+                                    {topic}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex-shrink-0 pt-2">
+                            <Button
+                              size="sm"
+                              variant="default"
+                              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                              asChild
+                            >
+                              <Link href="/contact">Enroll Now</Link>
+                            </Button>
                           </div>
                         </div>
                       </div>
-                      <div className="flex-shrink-0 pt-2">
-                        <Button
-                          size="sm"
-                          variant="default"
-                          className="bg-accent hover:bg-accent/90 text-accent-foreground"
-                          asChild
-                        >
-                          <Link href="/contact">Enroll Now</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Custom Programs - viewport height */}
-        <section className="h-[100dvh] min-h-0 flex flex-col justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <div className="container mx-auto w-full">
-            <Card className="overflow-hidden border-2">
-              <div className="grid lg:grid-cols-2">
-                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-3 sm:mb-4 text-balance">
-                    Custom Corporate Programs
-                  </h2>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 text-pretty">
-                    Bespoke training programs tailored to your organization&apos;s needs — from onboarding to leadership
-                    development.
-                  </p>
-                  <Button size="sm" className="bg-primary hover:bg-primary/90" asChild>
-                    <Link href="/contact">Request Custom Program</Link>
-                  </Button>
-                </div>
-                <div className="relative">
-                  <img
-                    src={sectionImages.custom}
-                    alt="Corporate training and collaboration"
-                    className="w-full h-[250px] sm:h-[300px] lg:h-[350px] object-cover"
-                    loading="lazy"
-                  />
+                    </Card>
+                  ))}
                 </div>
               </div>
-            </Card>
+
+              <div className="h-px bg-border" />
+
+              <div>
+                <div className="mb-5 sm:mb-6">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-primary">For Companies / Corporates</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mt-1">
+                    Programs tailored for teams, managers, and business outcomes at organizational scale.
+                  </p>
+                </div>
+                <div className="space-y-4 sm:space-y-6">
+                  {corporatePrograms.map((program, index) => (
+                    <Card key={program.title} className="overflow-visible hover:shadow-xl transition-all duration-300">
+                      <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+                        <div
+                          className={`p-4 sm:p-6 ${index % 2 === 0 ? "bg-primary/5" : "bg-accent/5"} flex flex-col justify-center`}
+                        >
+                          <div className="relative overflow-hidden rounded-xl border bg-background shadow-sm mb-3 sm:mb-4">
+                            <img
+                              src={program.image}
+                              alt={`${program.category} program`}
+                              className="h-36 sm:h-40 lg:h-48 w-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="flex items-center gap-3 sm:gap-4">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-background shadow-md flex items-center justify-center">
+                              <program.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${index % 2 === 0 ? "text-primary" : "text-accent"}`} />
+                            </div>
+                            <div className="text-xs sm:text-sm font-semibold text-muted-foreground">{program.category}</div>
+                          </div>
+                        </div>
+                        <div className="md:col-span-2 p-4 sm:p-6 flex flex-col justify-between min-h-0 overflow-visible">
+                          <div className="min-h-0 overflow-visible">
+                            <header className="mb-4 sm:mb-5">
+                              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{program.title}</h3>
+                              <p className="text-sm text-muted-foreground">
+                                <span className="font-semibold">Duration:</span> {program.duration}
+                              </p>
+                            </header>
+                            <CardDescription className="text-sm sm:text-base mb-2 sm:mb-3">{program.description}</CardDescription>
+                            <div className="mb-3 sm:mb-4">
+                              <h4 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2 text-foreground">Key Topics Covered:</h4>
+                              <div className="flex flex-wrap gap-1 sm:gap-1.5">
+                                {program.topics.map((topic) => (
+                                  <span key={topic} className="px-2 py-0.5 bg-muted text-[10px] sm:text-xs font-medium rounded-full">
+                                    {topic}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex-shrink-0 pt-2">
+                            <Button
+                              size="sm"
+                              variant="default"
+                              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                              asChild
+                            >
+                              <Link href="/contact">Enroll Now</Link>
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

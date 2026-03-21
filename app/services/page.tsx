@@ -27,10 +27,10 @@ export default function ServicesPage() {
       description: "Empowering individuals with confidence, communication, and character for lifelong success.",
       href: "/programs/soft-skills-development",
     },
-    { icon: Heart, name: "Life Coaching", description: "Personal growth and self-discovery sessions" },
-    { icon: Sparkles, name: "Motivational Sessions", description: "Inspiring talks to boost motivation and drive" },
-    { icon: Brain, name: "Manifestation & Mindset", description: "Transform your mindset for success" },
-    { icon: MessageCircle, name: "Counseling Sessions", description: "One-on-one guidance and support" },
+    { icon: Heart, name: "Life Coaching", description: "Personal growth and self-discovery sessions", href: "/services/life-coaching" },
+    { icon: Sparkles, name: "Motivational Sessions", description: "Inspiring talks to boost motivation and drive", href: "/services/motivational-sessions" },
+    { icon: Brain, name: "Manifestation & Mindset", description: "Transform your mindset for success", href: "/services/manifestation-mindset" },
+    { icon: MessageCircle, name: "Counseling Sessions", description: "One-on-one guidance and support", href: "/services/counseling-sessions" },
     { icon: Award, name: "Leadership Training Sessions", description: "Develop leadership qualities early", href: "/services/leadership-training" },
   ]
 
@@ -104,32 +104,36 @@ export default function ServicesPage() {
                 <p className="text-muted-foreground">Building foundational skills for future success</p>
               </div>
                 </div>
-                <div className="grid grid-cols-1 gap-8 lg:gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {studentServices.map((service) => (
                 service.href ? (
                   <Link key={service.name} href={service.href} className="block">
                     <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
-                      <CardHeader className="pb-6 pt-6 px-6">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                          <service.icon className="w-6 h-6 text-primary" />
+                      <CardHeader className="p-4 pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <service.icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <CardTitle className="text-base leading-tight">{service.name}</CardTitle>
                         </div>
-                        <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
                       </CardHeader>
-                      <CardContent className="pt-0 pb-6 px-6">
-                        <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                      <CardContent className="p-4 pt-0">
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{service.description}</p>
                       </CardContent>
                     </Card>
                   </Link>
                 ) : (
                   <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300 h-full">
-                    <CardHeader className="pb-6 pt-6 px-6">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                        <service.icon className="w-6 h-6 text-primary" />
+                    <CardHeader className="p-4 pb-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <service.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <CardTitle className="text-base leading-tight">{service.name}</CardTitle>
                       </div>
-                      <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
                     </CardHeader>
-                    <CardContent className="pt-0 pb-6 px-6">
-                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    <CardContent className="p-4 pt-0">
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{service.description}</p>
                     </CardContent>
                   </Card>
                 )
@@ -164,32 +168,36 @@ export default function ServicesPage() {
                 <p className="text-muted-foreground">Accelerate your career with advanced skills</p>
               </div>
                 </div>
-                <div className="grid grid-cols-1 gap-8 lg:gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {professionalServices.map((service) => (
                 service.href ? (
                   <Link key={service.name} href={service.href} className="block">
                     <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                      <CardHeader className="pb-6 pt-6 px-6">
-                        <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-5">
-                          <service.icon className="w-6 h-6 text-accent" />
+                      <CardHeader className="p-4 pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
+                            <service.icon className="w-5 h-5 text-accent" />
+                          </div>
+                          <CardTitle className="text-base leading-tight">{service.name}</CardTitle>
                         </div>
-                        <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
                       </CardHeader>
-                      <CardContent className="pt-0 pb-6 px-6">
-                        <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                      <CardContent className="p-4 pt-0">
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{service.description}</p>
                       </CardContent>
                     </Card>
                   </Link>
                 ) : (
                   <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
-                    <CardHeader className="pb-6 pt-6 px-6">
-                      <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-5">
-                        <service.icon className="w-6 h-6 text-accent" />
+                    <CardHeader className="p-4 pb-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
+                          <service.icon className="w-5 h-5 text-accent" />
+                        </div>
+                        <CardTitle className="text-base leading-tight">{service.name}</CardTitle>
                       </div>
-                      <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
                     </CardHeader>
-                    <CardContent className="pt-0 pb-6 px-6">
-                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    <CardContent className="p-4 pt-0">
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{service.description}</p>
                     </CardContent>
                   </Card>
                 )
@@ -224,32 +232,36 @@ export default function ServicesPage() {
                 <p className="text-muted-foreground">Comprehensive workforce development solutions</p>
               </div>
                 </div>
-                <div className="grid grid-cols-1 gap-8 lg:gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {corporateServices.map((service) => (
                 service.href ? (
                   <Link key={service.name} href={service.href} className="block">
                     <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                      <CardHeader className="pb-6 pt-6 px-6">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                          <service.icon className="w-6 h-6 text-primary" />
+                      <CardHeader className="p-4 pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <service.icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <CardTitle className="text-base leading-tight">{service.name}</CardTitle>
                         </div>
-                        <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
                       </CardHeader>
-                      <CardContent className="pt-0 pb-6 px-6">
-                        <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                      <CardContent className="p-4 pt-0">
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{service.description}</p>
                       </CardContent>
                     </Card>
                   </Link>
                 ) : (
                   <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
-                    <CardHeader className="pb-6 pt-6 px-6">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                        <service.icon className="w-6 h-6 text-primary" />
+                    <CardHeader className="p-4 pb-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <service.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <CardTitle className="text-base leading-tight">{service.name}</CardTitle>
                       </div>
-                      <CardTitle className="text-lg leading-tight mb-3">{service.name}</CardTitle>
                     </CardHeader>
-                    <CardContent className="pt-0 pb-6 px-6">
-                      <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                    <CardContent className="p-4 pt-0">
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{service.description}</p>
                     </CardContent>
                   </Card>
                 )

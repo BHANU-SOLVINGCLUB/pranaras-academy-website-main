@@ -1,8 +1,11 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useState } from "react"
 import { Award, BookOpen, Heart, Users } from "lucide-react"
 
 export default function AboutPage() {
@@ -11,28 +14,50 @@ export default function AboutPage() {
       icon: Award,
       title: "Excellence",
       description: "We strive for excellence in every training session and program we deliver",
+      details: [
+        "We design every session with clear outcomes and measurable learning goals.",
+        "Our trainers continuously refine methods based on learner feedback and results.",
+        "Quality and consistency are maintained across student, professional, and corporate programs.",
+      ],
     },
     {
       icon: Heart,
       title: "Empowerment",
       description: "We empower individuals to unlock their full potential and achieve their dreams",
+      details: [
+        "Learners are guided to identify strengths and overcome limiting beliefs.",
+        "Programs focus on confidence, ownership, and practical skill application.",
+        "We create a supportive environment where growth feels achievable and sustainable.",
+      ],
     },
     {
       icon: Users,
       title: "Human-Centered",
       description: "We put people first, understanding that every learner has unique needs and goals",
+      details: [
+        "Training is adapted to learner context, level, and real-world challenges.",
+        "We prioritize empathy, active listening, and personalized guidance.",
+        "Every session balances structure with flexibility to improve learning outcomes.",
+      ],
     },
     {
       icon: BookOpen,
       title: "Continuous Learning",
       description: "We believe in lifelong learning and constantly updating our methodologies",
+      details: [
+        "Our curriculum evolves with changing workplace and communication demands.",
+        "Trainers incorporate modern tools, new case studies, and current best practices.",
+        "We encourage a growth mindset that supports long-term personal and professional development.",
+      ],
     },
   ]
+
+  const [selectedValue, setSelectedValue] = useState<(typeof values)[number] | null>(null)
 
   const sectionImages = {
     hero: "/stock-images/about_hero_section.jpeg",
     mission: "/stock-images/about_mission_vision.jpeg",
-    founder: "/stock-images/about_foundation_section.jpeg",
+    founder: "/founder's photo.jpg",
     values: "/stock-images/about_values_section.jpeg",
     cta: "/stock-images/about_join_our_community.jpeg",
   }
@@ -111,7 +136,7 @@ export default function AboutPage() {
                       <img
                         src={sectionImages.founder}
                         alt="Founder portrait"
-                        className="w-full h-full object-cover object-[70%_10%]"
+                        className="w-full h-full object-cover object-[70%_10%] scale-120"
                         loading="lazy"
                       />
                     </div>
@@ -160,7 +185,19 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value) => (
-                <Card key={value.title} className="text-center hover:shadow-lg transition-all duration-300">
+                <Card
+                  key={value.title}
+                  className="text-center hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  onClick={() => setSelectedValue(value)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setSelectedValue(value)
+                    }
+                  }}
+                >
                   <CardContent className="p-6 space-y-3">
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto">
                       <value.icon className="w-6 h-6 text-primary" />
@@ -173,6 +210,48 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {selectedValue && (
+          <div
+            className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setSelectedValue(null)}
+          >
+            <Card className="w-full max-w-2xl border-2 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+              <CardContent className="p-6 sm:p-8 space-y-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <selectedValue.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold">{selectedValue.title}</h3>
+                  </div>
+                  <button
+                    type="button"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setSelectedValue(null)}
+                    aria-label="Close core value popup"
+                  >
+                    Close
+                  </button>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">{selectedValue.description}</p>
+                <ul className="space-y-2">
+                  {selectedValue.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2">
+                  <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+                    <Link href="/contact">Connect With Us</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         {/* CTA */}
         <section className="py-16 sm:py-20">

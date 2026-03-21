@@ -1,8 +1,11 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
+import { useState } from "react"
 import { ArrowRight, Users, Target, Briefcase, GraduationCap, Heart, TrendingUp, Award, Sparkles } from "lucide-react"
 
 export default function HomePage() {
@@ -50,30 +53,52 @@ export default function HomePage() {
       icon: Target,
       title: "Live Sessions & Workshops",
       description: "Interactive training sessions with real-world applications",
+      details: [
+        "Facilitator-led workshops designed around practical scenarios.",
+        "Hands-on activities, group exercises, and guided feedback.",
+        "Useful for students, professionals, and corporate teams needing immediate skill application.",
+      ],
     },
     {
       icon: TrendingUp,
       title: "Skill Development Programs",
       description: "Comprehensive programs designed for career advancement",
+      details: [
+        "Structured multi-week learning paths focused on career-ready competencies.",
+        "Covers communication, confidence, workplace behavior, and professional growth.",
+        "Includes progress checkpoints to help learners track measurable improvement.",
+      ],
     },
     {
       icon: Award,
       title: "Expert-Led Training",
       description: "Learn from experienced coaches and industry professionals",
+      details: [
+        "Sessions delivered by experienced trainers with real corporate and coaching exposure.",
+        "Curriculum blends proven frameworks with contextual Indian workplace examples.",
+        "Participants receive actionable techniques they can apply immediately.",
+      ],
     },
     {
       icon: Sparkles,
       title: "Hire, Train & Deploy Programs",
       description: "Corporate solutions for talent development and deployment",
+      details: [
+        "End-to-end model covering hiring support, role-based training, and deployment readiness.",
+        "Designed to reduce onboarding time and improve team productivity.",
+        "Customizable for organizations based on domain, role, and hiring volume.",
+      ],
     },
   ]
 
-  const stats = [
-    { value: "500+", label: "Students Trained" },
-    { value: "50+", label: "Corporate Clients" },
-    { value: "100+", label: "Workshops Conducted" },
-    { value: "95%", label: "Satisfaction Rate" },
-  ]
+  const [selectedFeature, setSelectedFeature] = useState<(typeof features)[number] | null>(null)
+
+  // const stats = [
+  //   { value: "500+", label: "Students Trained" },
+  //   { value: "50+", label: "Corporate Clients" },
+  //   { value: "100+", label: "Workshops Conducted" },
+  //   { value: "95%", label: "Satisfaction Rate" },
+  // ]
 
   const images = {
     hero: "/stock-images/homepage_hero_section.jpeg",
@@ -119,7 +144,7 @@ export default function HomePage() {
             playsInline
             poster={images.hero}
           >
-            <source src="/hero-video-1.mp4" type="video/mp4" />
+            <source src="/c20b8eda-b151-4e6e-a7a7-e669318b20f3.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
@@ -191,8 +216,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-12 border-y border-border bg-background">
+        {/* Stats Section - hidden until real data is confirmed */}
+        {/* <section className="py-12 border-y border-border bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat) => (
@@ -203,7 +228,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Who We Serve */}
         <section className="py-16 sm:py-20">
@@ -310,7 +335,16 @@ export default function HomePage() {
               {features.map((feature, index) => (
                 <Card
                   key={feature.title}
-                  className="border-2 hover:border-primary/50 transition-all hover:shadow-xl group"
+                  className="border-2 hover:border-primary/50 transition-all hover:shadow-xl group cursor-pointer"
+                  onClick={() => setSelectedFeature(feature)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault()
+                      setSelectedFeature(feature)
+                    }
+                  }}
                 >
                   <CardContent className="p-8 space-y-4">
                     <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -324,6 +358,51 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {selectedFeature && (
+          <div
+            className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setSelectedFeature(null)}
+          >
+            <Card
+              className="w-full max-w-2xl border-2 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <CardContent className="p-6 sm:p-8 space-y-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+                      <selectedFeature.icon className="w-6 h-6 text-accent" />
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold">{selectedFeature.title}</h3>
+                  </div>
+                  <button
+                    type="button"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setSelectedFeature(null)}
+                    aria-label="Close details popup"
+                  >
+                    Close
+                  </button>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">{selectedFeature.description}</p>
+                <ul className="space-y-2">
+                  {selectedFeature.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0"></span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2">
+                  <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
+                    <Link href="/contact">Talk to Us</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         {/* CTA Section - viewport height */}
         <section className="h-[100dvh] min-h-0 flex flex-col justify-center overflow-hidden py-8 sm:py-10">
