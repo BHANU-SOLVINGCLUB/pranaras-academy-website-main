@@ -104,10 +104,10 @@ export default function ServicesPage() {
                 <p className="text-muted-foreground">Building foundational skills for future success</p>
               </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               {studentServices.map((service) => (
                 service.href ? (
-                  <Link key={service.name} href={service.href} className="block">
+                  <Link key={service.name} href={service.href} className="block h-full">
                     <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
                       <CardHeader className="p-4 pb-3">
                         <div className="flex items-center gap-3">
@@ -168,11 +168,11 @@ export default function ServicesPage() {
                 <p className="text-muted-foreground">Accelerate your career with advanced skills</p>
               </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               {professionalServices.map((service) => (
                 service.href ? (
-                  <Link key={service.name} href={service.href} className="block">
-                    <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  <Link key={service.name} href={service.href} className="block h-full">
+                    <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
                       <CardHeader className="p-4 pb-3">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
@@ -187,7 +187,7 @@ export default function ServicesPage() {
                     </Card>
                   </Link>
                 ) : (
-                  <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
+                  <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300 h-full">
                     <CardHeader className="p-4 pb-3">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center">
@@ -232,11 +232,11 @@ export default function ServicesPage() {
                 <p className="text-muted-foreground">Comprehensive workforce development solutions</p>
               </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               {corporateServices.map((service) => (
                 service.href ? (
-                  <Link key={service.name} href={service.href} className="block">
-                    <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  <Link key={service.name} href={service.href} className="block h-full">
+                    <Card className="bg-muted/50 hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
                       <CardHeader className="p-4 pb-3">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -251,7 +251,7 @@ export default function ServicesPage() {
                     </Card>
                   </Link>
                 ) : (
-                  <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300">
+                  <Card key={service.name} className="bg-muted/50 hover:shadow-lg transition-all duration-300 h-full">
                     <CardHeader className="p-4 pb-3">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">

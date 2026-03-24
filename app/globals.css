@@ -127,3 +127,8 @@
     scroll-behavior: auto;
   }
 }
+
+/* Keep service detail cards aligned in desktop two-column layout */
+.service-detail-grid > * {
+  height: 100%;
+}

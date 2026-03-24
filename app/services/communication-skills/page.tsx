@@ -9,8 +9,8 @@ export default function CommunicationSkillsPage() {
   return (
     <>
       <Header />
-      <main>
-        <section className="bg-primary pt-10 sm:pt-14 pb-10 sm:pb-12">
+      <main className="bg-slate-100">
+        <section className="bg-gradient-to-br from-primary via-primary/95 to-accent/80 pt-10 sm:pt-14 pb-10 sm:pb-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <Button variant="ghost" className="mb-6 -ml-2 text-white/80 hover:text-white hover:bg-white/10" asChild>
@@ -34,10 +34,10 @@ export default function CommunicationSkillsPage() {
           </div>
         </section>
 
-        <section className="bg-muted/30 pt-8 pb-16 sm:pb-24">
+        <section className="bg-gradient-to-b from-primary/[0.08] via-muted/40 to-slate-200/70 pt-10 pb-16 sm:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 items-start">
-              <Card className="shadow-md bg-white">
+            <div className="service-detail-grid max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 items-stretch">
+              <Card className="h-full border border-primary/10 shadow-xl bg-white/95 backdrop-blur">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Communication Skills Training for Working Professionals</h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
@@ -54,7 +54,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Why Communication Skills Matter</h2>
                   <ul className="space-y-3">
@@ -68,7 +68,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">About the Program</h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -79,7 +79,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Key Learning Objectives</h2>
                   <ul className="space-y-3">
@@ -94,7 +94,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Who Can Join?</h2>
                   <ul className="space-y-3">
@@ -108,7 +108,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Core Topics Covered</h2>
                   <ul className="space-y-3">
@@ -130,7 +130,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Training Methodology</h2>
                   <ul className="space-y-3">
@@ -149,7 +149,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Benefits of the Program</h2>
                   <ul className="space-y-3">
@@ -164,7 +164,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-white">
+              <Card className="h-full shadow-md bg-white">
                 <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Why Choose Pranaras Academy?</h2>
                   <ul className="space-y-3">
@@ -180,7 +180,7 @@ export default function CommunicationSkillsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-md bg-primary/5">
+              <Card className="h-full border border-primary/20 shadow-xl bg-primary/10">
                 <CardContent className="p-6 sm:p-8">
                   <div className="space-y-6">
                     <div>
