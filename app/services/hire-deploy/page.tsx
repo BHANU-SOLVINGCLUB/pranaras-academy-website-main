@@ -10,35 +10,35 @@ export default function HireDeployPage() {
     <>
       <Header />
       <main>
-        <section className="py-16 sm:py-20">
+        <section className="bg-primary pt-10 sm:pt-14 pb-10 sm:pb-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <Button variant="ghost" className="mb-8" asChild>
+            <div className="max-w-7xl mx-auto">
+              <Button variant="ghost" className="mb-6 -ml-2 text-white/80 hover:text-white hover:bg-white/10" asChild>
                 <Link href="/services#corporates">
                   <ArrowLeft className="mr-2" size={16} />
                   Back to Services
                 </Link>
               </Button>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Briefcase className="w-8 h-8 text-primary" />
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-2">
+                  <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
                     Hire & Deploy Programs
                   </h1>
-                  <p className="text-muted-foreground">Skilled Talent. Ready from Day One.</p>
+                  <p className="text-lg text-white/80">Skilled Talent. Ready from Day One.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-8 sm:py-12 pb-16 sm:pb-20">
+        <section className="bg-muted/30 pt-8 pb-16 sm:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto space-y-8">
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 items-start">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Hire & Deploy Programs</h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
                     Skilled Talent. Ready from Day One.
@@ -52,8 +52,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Understanding Hire & Deploy</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Candidate sourcing and screening</span></li>
@@ -65,8 +65,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">The Workforce Challenges We Address</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Skill gaps among new hires</span></li>
@@ -79,8 +79,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Pre-Deployment Skill Training</h2>
                   
                   <div className="space-y-6">
@@ -109,8 +109,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Industry-Specific Technical Programs</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Information Technology skills</span></li>
@@ -123,8 +123,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Campus to Corporate Transition</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Corporate culture orientation</span></li>
@@ -136,8 +136,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Screening & Talent Assessment</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Skill tests</span></li>
@@ -149,8 +149,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Benefits</h2>
                   
                   <div className="space-y-6">
@@ -182,8 +182,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Why Choose Pranaras Academy?</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Customized workforce solutions</span></li>
@@ -198,8 +198,8 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2 bg-primary/5">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-primary/5">
+                <CardContent className="p-6 sm:p-8">
                   <div className="space-y-6">
                     <div>
                       <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Our Vision</h2>
@@ -212,7 +212,7 @@ export default function HireDeployPage() {
                 </CardContent>
               </Card>
 
-              <div className="flex justify-center pt-8">
+              <div className="flex justify-center pt-8 lg:col-span-2">
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
                   <Link href="/contact">Build Your Future Workforce</Link>
                 </Button>

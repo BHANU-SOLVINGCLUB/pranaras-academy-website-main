@@ -142,12 +142,12 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <CardContent className="md:col-span-3 p-8 flex flex-col justify-center">
-                    <h2 className="text-3xl font-bold text-primary mb-2">Pranathi</h2>
+                    <h2 className="text-3xl font-bold text-primary mb-2">Dr. Pranathi Shubhasri</h2>
                     <p className="text-lg text-accent font-semibold mb-4">Head Coach & Founder</p>
                     <div className="space-y-4 text-muted-foreground">
                       <p>
                         With years of experience in corporate training, life coaching, and leadership development,
-                        Pranathi has transformed the lives of hundreds of individuals and organizations.
+                        Dr. Pranathi Shubhasri has transformed the lives of hundreds of individuals and organizations.
                       </p>
                       <p>
                         Her expertise spans across soft skills training, motivational speaking, and personal
