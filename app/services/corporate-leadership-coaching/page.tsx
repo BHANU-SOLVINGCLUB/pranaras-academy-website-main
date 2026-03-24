@@ -10,35 +10,35 @@ export default function CorporateLeadershipCoachingPage() {
     <>
       <Header />
       <main>
-        <section className="py-16 sm:py-20">
+        <section className="bg-primary pt-10 sm:pt-14 pb-10 sm:pb-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <Button variant="ghost" className="mb-8" asChild>
+            <div className="max-w-7xl mx-auto">
+              <Button variant="ghost" className="mb-6 -ml-2 text-white/80 hover:text-white hover:bg-white/10" asChild>
                 <Link href="/services#corporates">
                   <ArrowLeft className="mr-2" size={16} />
                   Back to Services
                 </Link>
               </Button>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Crown className="w-8 h-8 text-primary" />
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Crown className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-2">
+                  <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
                     Corporate Leadership & Executive Coaching
                   </h1>
-                  <p className="text-muted-foreground">Build confident, capable, and visionary leaders</p>
+                  <p className="text-lg text-white/80">Build confident, capable, and visionary leaders</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-8 sm:py-12 pb-16 sm:pb-20">
+        <section className="bg-muted/30 pt-8 pb-16 sm:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto space-y-8">
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 items-start">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Corporate Leadership & Executive Coaching</h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
                     At Pranaras Academy, we help organizations build confident, capable, and visionary leaders. Our
@@ -53,8 +53,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Our Approach</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Experiential and activity-based learning</span></li>
@@ -67,8 +67,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Executive Coaching Services</h2>
                   
                   <div className="space-y-6">
@@ -99,8 +99,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Corporate Skill Enhancement</h2>
                   
                   <div className="space-y-6">
@@ -131,8 +131,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Benefits</h2>
                   
                   <div className="space-y-6">
@@ -164,8 +164,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Why Choose Pranaras Academy?</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Customized programs for every organization</span></li>
@@ -179,8 +179,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-white">
+                <CardContent className="p-6 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">Who Can Attend?</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3"><CheckCircle className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" /><span className="text-base text-muted-foreground">Senior Executives</span></li>
@@ -193,8 +193,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2 bg-primary/5">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-primary/5">
+                <CardContent className="p-6 sm:p-8">
                   <div className="space-y-6">
                     <div>
                       <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Our Mission</h2>
@@ -214,8 +214,8 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2 bg-primary/5">
-                <CardContent className="p-8 sm:p-10">
+              <Card className="shadow-md bg-primary/5">
+                <CardContent className="p-6 sm:p-8">
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-center italic">
                     Let&apos;s build strong, ethical, and impactful leaders together. Partner with Pranaras Academy to
                     transform your workforce and achieve sustainable success.
@@ -223,7 +223,7 @@ export default function CorporateLeadershipCoachingPage() {
                 </CardContent>
               </Card>
 
-              <div className="flex justify-center pt-8">
+              <div className="flex justify-center pt-8 lg:col-span-2">
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
                   <Link href="/contact">Partner with Pranaras Academy</Link>
                 </Button>

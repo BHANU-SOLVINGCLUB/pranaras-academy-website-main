@@ -133,7 +133,7 @@ export default function ContactPage() {
                       <div>
                         <p className="font-medium">Phone</p>
                         <a href="tel:+918886999022" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                          +91 88869 99022
+                          +91 888 6 999 022
                         </a>
                       </div>
                     </div>
