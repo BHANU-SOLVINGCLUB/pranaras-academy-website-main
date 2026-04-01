@@ -94,8 +94,10 @@ export default function HomePage() {
   const [selectedFeature, setSelectedFeature] = useState<(typeof features)[number] | null>(null)
 
   const stats = [
-    { value: "1000+", label: "Learners Trained" },
+    { value: "1000+", label: "Students Trained" },
     { value: "500+", label: "Individuals Counselled" },
+    { value: "100+", label: "Workshops Conducted" },
+    { value: "95%", label: "Satisfaction Rate" },
   ]
 
   const images = {
@@ -217,7 +219,7 @@ export default function HomePage() {
         {/* Stats Section */}
         <section className="py-12 border-y border-border bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</div>
