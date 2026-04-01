@@ -1,0 +1,6 @@
+# Pranaras Academy - https://pranarasacademy.in
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pranarasacademy.in/sitemap.xml
